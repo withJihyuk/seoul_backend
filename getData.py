@@ -12,3 +12,9 @@ data = res.json()
 
 # 데이터를 캐시화
 db.set('getCulturalEventInfo', json.dumps(data))
+
+url= f"http://openapi.seoul.go.kr:8088/{os.environ['API_KEY']}/json/culturalSpaceInfo/1/100/"
+res = requests.get(url)
+data = res.json()
+
+db.set('culturalSpaceInfo', json.dumps(data))
