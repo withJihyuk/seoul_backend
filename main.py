@@ -6,8 +6,8 @@ from pydantic import BaseModel
 app = FastAPI()
 
 class location(BaseModel): 
-    X_COORD: str
-    Y_COORD: str
+    X_COORD: float
+    Y_COORD: float
 
 
 @app.get("/")
