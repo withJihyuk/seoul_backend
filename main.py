@@ -26,8 +26,8 @@ def stadiumScheduleInfo():
 
 @app.post("/stadiumScheduleLoactionCal")
 async def stadiumScheduleLoactionCal(item: location):
-    data = db.get('culturalSpaceInfo')["culturalSpaceInfo"]["row"]
-    OWN_X_COORD = location.X_COORD
-    OWN_Y_COORD = location.Y_COORD
-    nearest_events = calculate.find_nearest_events(OWN_X_COORD, OWN_Y_COORD, data, '3')
+    data = json.loads(db.get('culturalSpaceInfo').decode('utf-8'))
+    OWN_X_COORD = item.X_COORD
+    OWN_Y_COORD = item.Y_COORD
+    nearest_events = calculate.find_nearest_events(OWN_X_COORD, OWN_Y_COORD, data, 3)
     return nearest_events
