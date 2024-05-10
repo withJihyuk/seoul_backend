@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from db import r as db
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
